@@ -7,6 +7,7 @@ A production-ready, fully responsive landing page template for service businesse
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)
+[![Tests](https://github.com/dionicio-damiani/business-landing-page/actions/workflows/tests.yml/badge.svg)](https://github.com/dionicio-damiani/business-landing-page/actions/workflows/tests.yml)
 
 🔗 **Live demo:** https://business-landing-page-production.up.railway.app
 ![preview](static/img/og-cover.gif)
@@ -58,6 +59,8 @@ Copy `.env.example` to `.env` and adjust if needed (optional):
 | `HOST`    | `0.0.0.0` | Bind address                                     |
 | `PORT`    | `8000`    | Port                                             |
 | `RELOAD`  | `true`    | Auto-reload (set `false` in production)          |
+| `RESEND_API_KEY` | _(empty)_ | [Resend](https://resend.com) API key — leave blank to log submissions to console only |
+| `CONTACT_EMAIL` | `hello@luminarystudio.com` | Inbox that receives contact form submissions |
 
 Set env vars in your shell or use a process manager; `python main.py` reads them via `os.getenv`.
 
@@ -85,8 +88,11 @@ business-landing-page/
 │   └── js/app.js        # Reads validation rules from #app-config
 ├── templates/
 │   └── index.html
+├── tests/
+│   └── test_main.py     # pytest suite (httpx TestClient)
 ├── main.py              # Single entry point (uvicorn)
 ├── requirements.txt
+├── requirements-dev.txt
 ├── .env.example
 └── .gitignore
 ```
@@ -101,7 +107,20 @@ business-landing-page/
 | GET    | `/health`       | `{"status": "ok"}`             |
 | POST   | `/api/contact`  | JSON body: `name`, `email`, `subject`, `message` |
 
-To send real email after validation, plug in [Resend](https://resend.com) or [SendGrid](https://sendgrid.com) inside the `contact` handler in `app/main.py`.
+After validation, the contact form sends a real email via [Resend](https://resend.com) to `CONTACT_EMAIL` using the `RESEND_API_KEY` from `.env`. If `RESEND_API_KEY` is not set, submissions are only logged to the console (safe for local dev).
+
+---
+
+## Testing
+
+The test suite uses [pytest](https://docs.pytest.org) and FastAPI's `TestClient` (built on `httpx`). Resend calls are mocked, so no real emails are sent and no API key is required.
+
+```bash
+pip install -r requirements-dev.txt
+pytest -v
+```
+
+Coverage includes the landing page, `/health`, contact form success/validation/error responses, and rate limiting on `/api/contact`. Tests run automatically on every push and pull request via [GitHub Actions](.github/workflows/tests.yml).
 
 ---
 
