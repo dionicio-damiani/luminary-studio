@@ -34,8 +34,8 @@ A production-ready, fully responsive landing page template for service businesse
 **Requirements:** Python 3.11+
 
 ```bash
-git clone https://github.com/dionicio-damiani/business-landing-page.git
-cd business-landing-page
+git clone https://github.com/dionicio-damiani/luminary-studio.git
+cd luminary-studio
 
 python -m venv venv
 
@@ -81,7 +81,7 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 ## Project structure
 
 ```
-business-landing-page/
+luminary-studio/
 ├── .github/
 │   └── workflows/tests.yml  # CI: runs the pytest suite
 ├── app/
