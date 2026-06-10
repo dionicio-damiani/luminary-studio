@@ -9,8 +9,12 @@ A production-ready, fully responsive landing page template for service businesse
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)
 [![Tests](https://github.com/dionicio-damiani/business-landing-page/actions/workflows/tests.yml/badge.svg)](https://github.com/dionicio-damiani/business-landing-page/actions/workflows/tests.yml)
 
-🔗 **Live demo:** https://luminary-studio.up.railway.app
-![preview](static/img/og-cover.gif)
+## Live Demo
+
+**[→ Try it live](https://luminary-studio.up.railway.app)**
+
+![Preview](static/img/og-cover.gif)
+
 ---
 
 ## Features
