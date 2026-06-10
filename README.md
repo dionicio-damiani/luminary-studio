@@ -62,7 +62,7 @@ Copy `.env.example` to `.env` and adjust if needed (optional):
 | `RESEND_API_KEY` | _(empty)_ | [Resend](https://resend.com) API key — leave blank to log submissions to console only |
 | `CONTACT_EMAIL` | `hello@luminarystudio.com` | Inbox that receives contact form submissions |
 
-Set env vars in your shell or use a process manager; `python main.py` reads them via `os.getenv`.
+Variables in `.env` are loaded automatically via `python-dotenv`. You can also set them in your shell or a process manager — both are read via `os.getenv`.
 
 **Production example:**
 
@@ -78,6 +78,8 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 
 ```
 business-landing-page/
+├── .github/
+│   └── workflows/tests.yml  # CI: runs the pytest suite
 ├── app/
 │   ├── __init__.py
 │   ├── main.py          # FastAPI app, routes, static/templates
@@ -85,14 +87,18 @@ business-landing-page/
 │   └── messages.py      # Shared copy (validation + success text)
 ├── static/
 │   ├── css/styles.css
+│   ├── img/og-cover.gif
 │   └── js/app.js        # Reads validation rules from #app-config
 ├── templates/
-│   └── index.html
+│   ├── index.html
+│   └── 404.html
 ├── tests/
 │   └── test_main.py     # pytest suite (httpx TestClient)
 ├── main.py              # Single entry point (uvicorn)
 ├── requirements.txt
 ├── requirements-dev.txt
+├── pytest.ini
+├── Procfile             # Railway deploy
 ├── .env.example
 └── .gitignore
 ```
@@ -105,6 +111,8 @@ business-landing-page/
 |--------|-----------------|--------------------------------|
 | GET    | `/`             | Landing page (Jinja2)          |
 | GET    | `/health`       | `{"status": "ok"}`             |
+| GET    | `/robots.txt`   | Robots file (links `sitemap.xml` if `SITE_URL` is set) |
+| GET    | `/sitemap.xml`  | Sitemap XML                    |
 | POST   | `/api/contact`  | JSON body: `name`, `email`, `subject`, `message` |
 
 After validation, the contact form sends a real email via [Resend](https://resend.com) to `CONTACT_EMAIL` using the `RESEND_API_KEY` from `.env`. If `RESEND_API_KEY` is not set, submissions are only logged to the console (safe for local dev).
