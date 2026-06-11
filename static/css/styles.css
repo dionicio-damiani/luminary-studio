@@ -470,7 +470,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hero-scroll-hint {
   position: absolute;
   bottom: 2.5rem;
-  right: clamp(1.25rem, 5vw, 3rem);
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1218,6 +1219,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
+    grid-auto-rows: 240px;
   }
   .card-tall { grid-row: span 1; }
   .card-wide { grid-column: span 1; }
@@ -1250,6 +1252,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .lightbox-frame {
     grid-template-columns: 1fr;
     width: 100%;
+    height: 92svh;
     max-height: 92svh;
     border-left: none;
     border-right: none;
@@ -1265,7 +1268,16 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   }
 
   .lightbox-close { top: 0.75rem; right: 0.75rem; }
-  .lightbox-arrow { display: none; }
+
+  .lightbox-arrow {
+    top: calc(8svh + 115px);
+    width: 44px;
+    height: 44px;
+    background: rgba(23, 18, 14, 0.55);
+    backdrop-filter: blur(6px);
+  }
+  .lightbox-prev { left: 0.75rem; }
+  .lightbox-next { right: 0.75rem; }
 
   .lightbox-details {
     max-height: calc(92svh - 230px);
@@ -1273,7 +1285,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 
 @media (max-width: 600px) {
-  .portfolio-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
   .portfolio-card { height: 220px; }
   .process-steps { grid-template-columns: 1fr; }
 
