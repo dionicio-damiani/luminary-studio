@@ -3,6 +3,7 @@
 A production-ready, fully responsive landing page for service businesses — built with pure HTML/CSS/JS and a FastAPI backend.
 
 [![Tests](https://github.com/dionicio-damiani/luminary-studio/actions/workflows/tests.yml/badge.svg)](https://github.com/dionicio-damiani/luminary-studio/actions/workflows/tests.yml)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)

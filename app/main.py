@@ -74,9 +74,7 @@ async def security_headers(request: Request, call_next):
 
 @app.exception_handler(404)
 async def not_found_handler(request: Request, exc):
-    return templates.TemplateResponse(
-        request, "404.html", {"year": datetime.now().year}, status_code=404
-    )
+    return templates.TemplateResponse(request, "404.html", {"year": datetime.now().year}, status_code=404)
 
 
 @app.exception_handler(500)
@@ -135,20 +133,22 @@ async def _send_email(form: ContactForm) -> bool:
         logger.info("Contact form [no email key] — %s <%s>: %s", form.name, form.email, form.subject)
         return True
     try:
-        resend.Emails.send({
-            "from": "Luminary Studio <onboarding@resend.dev>",
-            "to": CONTACT_EMAIL,
-            "reply_to": form.email,
-            "subject": f"New inquiry from {form.name}: {form.subject}",
-            "html": (
-                f"<h2 style='font-family:sans-serif'>New Contact Form Submission</h2>"
-                f"<p><strong>Name:</strong> {form.name}</p>"
-                f"<p><strong>Email:</strong> {form.email}</p>"
-                f"<p><strong>Subject:</strong> {form.subject}</p>"
-                f"<hr>"
-                f"<p style='white-space:pre-wrap'>{form.message}</p>"
-            ),
-        })
+        resend.Emails.send(
+            {
+                "from": "Luminary Studio <onboarding@resend.dev>",
+                "to": CONTACT_EMAIL,
+                "reply_to": form.email,
+                "subject": f"New inquiry from {form.name}: {form.subject}",
+                "html": (
+                    f"<h2 style='font-family:sans-serif'>New Contact Form Submission</h2>"
+                    f"<p><strong>Name:</strong> {form.name}</p>"
+                    f"<p><strong>Email:</strong> {form.email}</p>"
+                    f"<p><strong>Subject:</strong> {form.subject}</p>"
+                    f"<hr>"
+                    f"<p style='white-space:pre-wrap'>{form.message}</p>"
+                ),
+            }
+        )
         logger.info("Email sent for contact from %s <%s>", form.name, form.email)
         return True
     except resend.exceptions.ResendError as exc:
