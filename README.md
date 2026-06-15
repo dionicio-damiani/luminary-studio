@@ -1,17 +1,22 @@
 # Luminary Studio
 
-A production-ready, fully responsive landing page template for service businesses — built with pure HTML/CSS/JS and a FastAPI backend. Ships with **Luminary Studio** as demo content (fictional interior design studio).
+A production-ready, fully responsive landing page for service businesses — built with pure HTML/CSS/JS and a FastAPI backend.
+
+[![Tests](https://github.com/dionicio-damiani/luminary-studio/actions/workflows/tests.yml/badge.svg)](https://github.com/dionicio-damiani/luminary-studio/actions/workflows/tests.yml)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)
-[![Tests](https://github.com/dionicio-damiani/luminary-studio/actions/workflows/tests.yml/badge.svg)](https://github.com/dionicio-damiani/luminary-studio/actions/workflows/tests.yml)
+
+![Railway](https://img.shields.io/badge/Railway-Deployed-0B0D0E?style=flat&logo=railway&logoColor=white)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-online-brightgreen?style=flat)](https://luminary-studio.up.railway.app)
+![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-lightgrey?style=flat)
 
 ## Live
 
-**The app is live at [luminary-studio.up.railway.app](https://luminary-studio.up.railway.app)**
+**Live app:** [https://luminary-studio.up.railway.app](https://luminary-studio.up.railway.app)
 
 ![Preview](static/img/og-cover.gif)
 
@@ -137,16 +142,6 @@ Coverage includes the landing page, `/health`, contact form success/validation/e
 
 ---
 
-## Customization
-
-1. **Colors** — CSS variables in `static/css/styles.css` (`:root`)
-2. **Fonts** — Google Fonts link in `templates/index.html` + `--font-*` in CSS
-3. **Copy** — `templates/index.html` (demo brand: Luminary Studio)
-4. **Validation messages** — `app/messages.py` (automatically synced to the frontend)
-5. **SEO URL** — set `SITE_URL=https://yourdomain.com` when deploying
-
----
-
 ## Design decisions
 
 - **One entry point** — `python main.py`; app logic stays in `app/`
@@ -158,4 +153,4 @@ Coverage includes the landing page, `/health`, contact form success/validation/e
 
 ## License
 
-MIT — free to use, modify, and adapt for client projects.
+All rights reserved. This project is publicly visible for portfolio purposes only. No part of this codebase may be copied, modified, or redistributed without explicit written permission from the author.
