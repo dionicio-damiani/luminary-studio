@@ -86,6 +86,22 @@ class TestRobotsAndSitemap:
         assert "<loc>" in response.text
 
 
+class TestLegalPages:
+    def test_privacy_returns_200_and_html(self, client):
+        response = client.get("/privacy")
+
+        assert response.status_code == 200
+        assert "text/html" in response.headers["content-type"]
+        assert "Privacy Policy" in response.text
+
+    def test_terms_returns_200_and_html(self, client):
+        response = client.get("/terms")
+
+        assert response.status_code == 200
+        assert "text/html" in response.headers["content-type"]
+        assert "Terms of Service" in response.text
+
+
 class TestNotFound:
     def test_unknown_route_returns_404_page(self, client):
         response = client.get("/this-page-does-not-exist")

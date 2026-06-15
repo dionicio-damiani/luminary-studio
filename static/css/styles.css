@@ -1069,6 +1069,48 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .footer-bottom a { color: var(--gold); }
 .footer-bottom a:hover { text-decoration: underline; }
 
+.footer-legal { display: flex; gap: 0.5rem; align-items: center; }
+
+/* ── LEGAL PAGES ─────────────────────────────────────────── */
+.legal {
+  padding: calc(72px + var(--section-py)) 0 var(--section-py);
+  background: var(--navy);
+}
+
+.legal-content { max-width: 70ch; }
+
+.legal-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 400;
+  color: var(--gold-light);
+  margin: 2.5rem 0 1rem;
+}
+
+.legal-content h2:first-of-type { margin-top: 0; }
+
+.legal-content p,
+.legal-content li {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.legal-content ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.legal-content strong { color: var(--text); font-weight: 500; }
+
+.legal-updated {
+  font-size: 0.8rem;
+  color: var(--text-dimmer);
+  margin-bottom: 3rem;
+}
+
 /* ── WHATSAPP FLOAT ──────────────────────────────────────── */
 .whatsapp-float {
   position: fixed;

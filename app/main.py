@@ -127,6 +127,24 @@ async def index(request: Request):
     )
 
 
+@app.get("/privacy", response_class=HTMLResponse)
+async def privacy(request: Request):
+    return templates.TemplateResponse(
+        request,
+        "privacy.html",
+        {"year": datetime.now().year, "site_url": SITE_URL},
+    )
+
+
+@app.get("/terms", response_class=HTMLResponse)
+async def terms(request: Request):
+    return templates.TemplateResponse(
+        request,
+        "terms.html",
+        {"year": datetime.now().year, "site_url": SITE_URL},
+    )
+
+
 async def _send_email(form: ContactForm) -> bool:
     """Send the contact form notification via Resend. Returns True on success."""
     if not RESEND_API_KEY:
