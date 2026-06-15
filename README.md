@@ -15,9 +15,9 @@ A production-ready, fully responsive landing page for service businesses — bui
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-online-brightgreen?style=flat)](https://luminary-studio.up.railway.app)
 ![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-lightgrey?style=flat)
 
-## Live
+## Live demo
 
-**Live app:** [https://luminary-studio.up.railway.app](https://luminary-studio.up.railway.app)
+**Live demo:** [https://luminary-studio.up.railway.app](https://luminary-studio.up.railway.app)
 
 ![Preview](static/img/og-cover.gif)
 
